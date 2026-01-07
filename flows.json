@@ -1,0 +1,444 @@
+[
+    {
+        "id": "043a0d27bd3ce1e9",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e7bf8d00e68054ac",
+        "type": "debug",
+        "z": "043a0d27bd3ce1e9",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "41ab1b7553f5801c",
+        "type": "inject",
+        "z": "043a0d27bd3ce1e9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 380,
+        "wires": [
+            [
+                "8f28f1905358842c"
+            ]
+        ]
+    },
+    {
+        "id": "8f28f1905358842c",
+        "type": "rpi-dht22",
+        "z": "043a0d27bd3ce1e9",
+        "name": "temperature",
+        "topic": "rpi-dht22",
+        "dht": 22,
+        "pintype": "0",
+        "pin": 4,
+        "x": 510,
+        "y": 340,
+        "wires": [
+            [
+                "e7bf8d00e68054ac",
+                "72770eb4856b6af7",
+                "350530d408c8995e"
+            ]
+        ]
+    },
+    {
+        "id": "e36c66595e774fef",
+        "type": "rpi-gpio in",
+        "z": "043a0d27bd3ce1e9",
+        "name": "PIR",
+        "pin": "17",
+        "intype": "down",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "2ab14fbd56ca7aed"
+            ]
+        ]
+    },
+    {
+        "id": "11967e25bf66fa9d",
+        "type": "rpi-gpio in",
+        "z": "043a0d27bd3ce1e9",
+        "name": "gas",
+        "pin": "27",
+        "intype": "down",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "522544f8fccd3c93"
+            ]
+        ]
+    },
+    {
+        "id": "0b27ee52f4416d3e",
+        "type": "rpi-gpio out",
+        "z": "043a0d27bd3ce1e9",
+        "name": "led",
+        "pin": "22",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1150,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "f426e92aa495a61c",
+        "type": "inject",
+        "z": "043a0d27bd3ce1e9",
+        "name": "LED ON",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 120,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "50e60c57627d4a6f",
+        "type": "inject",
+        "z": "043a0d27bd3ce1e9",
+        "name": "LED OFF",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 120,
+        "y": 700,
+        "wires": [
+            [
+                "0b27ee52f4416d3e"
+            ]
+        ]
+    },
+    {
+        "id": "89f1ed315f166f83",
+        "type": "rpi-gpio in",
+        "z": "043a0d27bd3ce1e9",
+        "name": "LDR",
+        "pin": "23",
+        "intype": "down",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 110,
+        "y": 780,
+        "wires": [
+            [
+                "5f04b5c64fc5b369",
+                "7d27a880ae256844"
+            ]
+        ]
+    },
+    {
+        "id": "2ab14fbd56ca7aed",
+        "type": "debug",
+        "z": "043a0d27bd3ce1e9",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "522544f8fccd3c93",
+        "type": "debug",
+        "z": "043a0d27bd3ce1e9",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "5f04b5c64fc5b369",
+        "type": "debug",
+        "z": "043a0d27bd3ce1e9",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "7d27a880ae256844",
+        "type": "switch",
+        "z": "043a0d27bd3ce1e9",
+        "name": "switch",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 570,
+        "y": 800,
+        "wires": [
+            [
+                "dfbe6a71fa351fad"
+            ],
+            [
+                "62d548ef45505ce5"
+            ]
+        ]
+    },
+    {
+        "id": "dfbe6a71fa351fad",
+        "type": "change",
+        "z": "043a0d27bd3ce1e9",
+        "name": "LED on",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 780,
+        "wires": [
+            [
+                "0b27ee52f4416d3e"
+            ]
+        ]
+    },
+    {
+        "id": "62d548ef45505ce5",
+        "type": "change",
+        "z": "043a0d27bd3ce1e9",
+        "name": "LED off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 840,
+        "wires": [
+            [
+                "0b27ee52f4416d3e"
+            ]
+        ]
+    },
+    {
+        "id": "72770eb4856b6af7",
+        "type": "ui_gauge",
+        "z": "043a0d27bd3ce1e9",
+        "name": "environment",
+        "group": "36f190beaf6c7497",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 1070,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "350530d408c8995e",
+        "type": "ui_chart",
+        "z": "043a0d27bd3ce1e9",
+        "name": "",
+        "group": "0bf049cbbab2c965",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1050,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "36f190beaf6c7497",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "fd036bdb5ec0d67a",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0bf049cbbab2c965",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "fd036bdb5ec0d67a",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "fd036bdb5ec0d67a",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "ed5dae6bcaf1e94a",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-dht-sensor": "1.0.4",
+            "node-red-node-pi-gpio": "2.0.6",
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
