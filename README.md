@@ -83,7 +83,7 @@ A short demo video showing the temperature gauge and chart is included in this r
 ---
 
 ## 📷 Screenshots
-(Add dashboard and hardware images here)
+A screenshots is added in the report.
 
 ---
 
