@@ -27,12 +27,15 @@ Manually checking environmental conditions in a room — temperature, light, mot
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Hardware | ![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-A22846?style=flat-square&logo=raspberrypi&logoColor=white) DHT22 · PIR motion sensor · MQ-2 gas sensor · LDR · LED |
-| Flow / Logic | ![Node-RED](https://img.shields.io/badge/Node--RED-8F0000?style=flat-square&logo=nodered&logoColor=white) GPIO nodes |
-| Dashboard | Node-RED Dashboard (gauge + chart widgets) |
-| OS | Raspberry Pi OS |
+**Hardware**
+
+![](https://skillicons.dev/icons?i=raspberrypi)
+
+DHT22 · PIR motion sensor · MQ-2 gas sensor · LDR · LED · Raspberry Pi OS
+
+**Also using**
+
+![Node-RED](https://img.shields.io/badge/Node--RED-8F0000?style=for-the-badge&logo=nodered&logoColor=white)
 
 ## 🏗️ Architecture
 
